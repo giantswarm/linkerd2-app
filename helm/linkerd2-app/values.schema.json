@@ -2,7 +2,25 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
+        "clusterDomain": {
+            "type": "string"
+        },
+        "clusterNetworks": {
+            "type": "string"
+        },
+        "cniEnabled": {
+            "type": "boolean"
+        },
+        "controlPlaneTracing": {
+            "type": "boolean"
+        },
+        "controlPlaneTracingNamespace": {
+            "type": "string"
+        },
         "controllerImage": {
+            "type": "string"
+        },
+        "controllerLogFormat": {
             "type": "string"
         },
         "controllerLogLevel": {
@@ -13,14 +31,6 @@
         },
         "controllerUID": {
             "type": "integer"
-        },
-        "dashboard": {
-            "type": "object",
-            "properties": {
-                "replicas": {
-                    "type": "integer"
-                }
-            }
         },
         "debugContainer": {
             "type": "object",
@@ -44,280 +54,11 @@
         "disableHeartBeat": {
             "type": "boolean"
         },
-        "enableH2Upgrade": {
+        "enableEndpointSlices": {
             "type": "boolean"
         },
-        "enforcedHostRegexp": {
-            "type": "string"
-        },
-        "global": {
-            "type": "object",
-            "properties": {
-                "certManager": {
-                    "type": "object",
-                    "properties": {
-                        "version": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "clusterDomain": {
-                    "type": "string"
-                },
-                "controlPlaneTracing": {
-                    "type": "boolean"
-                },
-                "controllerComponentLabel": {
-                    "type": "string"
-                },
-                "controllerNamespaceLabel": {
-                    "type": "string"
-                },
-                "createdByAnnotation": {
-                    "type": "string"
-                },
-                "grafana": {
-                    "type": "object",
-                    "properties": {
-                        "enabled": {
-                            "type": "boolean"
-                        }
-                    }
-                },
-                "grafanaUrl": {
-                    "type": "string"
-                },
-                "identity": {
-                    "type": "object",
-                    "properties": {
-                        "issuer": {
-                            "type": "object",
-                            "properties": {
-                                "scheme": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    }
-                },
-                "identityTrustAnchorsPEM": {
-                    "type": "string"
-                },
-                "identityTrustDomain": {
-                    "type": "string"
-                },
-                "imagePullPolicy": {
-                    "type": "string"
-                },
-                "linkerdNamespaceLabel": {
-                    "type": "string"
-                },
-                "linkerdVersion": {
-                    "type": "string"
-                },
-                "proxy": {
-                    "type": "object",
-                    "properties": {
-                        "destinationGetNetworks": {
-                            "type": "string"
-                        },
-                        "enableExternalProfiles": {
-                            "type": "boolean"
-                        },
-                        "image": {
-                            "type": "object",
-                            "properties": {
-                                "name": {
-                                    "type": "string"
-                                },
-                                "pullPolicy": {
-                                    "type": "string"
-                                },
-                                "version": {
-                                    "type": "string"
-                                }
-                            }
-                        },
-                        "logLevel": {
-                            "type": "string"
-                        },
-                        "ports": {
-                            "type": "object",
-                            "properties": {
-                                "admin": {
-                                    "type": "integer"
-                                },
-                                "control": {
-                                    "type": "integer"
-                                },
-                                "inbound": {
-                                    "type": "integer"
-                                },
-                                "outbound": {
-                                    "type": "integer"
-                                }
-                            }
-                        },
-                        "requireIdentityOnInboundPorts": {
-                            "type": "string"
-                        },
-                        "resources": {
-                            "type": "object",
-                            "properties": {
-                                "cpu": {
-                                    "type": "object",
-                                    "properties": {
-                                        "limit": {
-                                            "type": "string"
-                                        },
-                                        "request": {
-                                            "type": "string"
-                                        }
-                                    }
-                                },
-                                "memory": {
-                                    "type": "object",
-                                    "properties": {
-                                        "limit": {
-                                            "type": "string"
-                                        },
-                                        "request": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        "trace": {
-                            "type": "object",
-                            "properties": {
-                                "collectorSvcAccount": {
-                                    "type": "string"
-                                },
-                                "collectorSvcAddr": {
-                                    "type": "string"
-                                }
-                            }
-                        },
-                        "uid": {
-                            "type": "integer"
-                        },
-                        "waitBeforeExitSeconds": {
-                            "type": "integer"
-                        }
-                    }
-                },
-                "proxyInit": {
-                    "type": "object",
-                    "properties": {
-                        "closeWaitTimeoutSecs": {
-                            "type": "integer"
-                        },
-                        "ignoreInboundPorts": {
-                            "type": "string"
-                        },
-                        "ignoreOutboundPorts": {
-                            "type": "string"
-                        },
-                        "image": {
-                            "type": "object",
-                            "properties": {
-                                "name": {
-                                    "type": "string"
-                                },
-                                "pullPolicy": {
-                                    "type": "string"
-                                },
-                                "version": {
-                                    "type": "string"
-                                }
-                            }
-                        },
-                        "resources": {
-                            "type": "object",
-                            "properties": {
-                                "cpu": {
-                                    "type": "object",
-                                    "properties": {
-                                        "limit": {
-                                            "type": "string"
-                                        },
-                                        "request": {
-                                            "type": "string"
-                                        }
-                                    }
-                                },
-                                "memory": {
-                                    "type": "object",
-                                    "properties": {
-                                        "limit": {
-                                            "type": "string"
-                                        },
-                                        "request": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                "proxyInjectAnnotation": {
-                    "type": "string"
-                },
-                "proxyInjectDisabled": {
-                    "type": "string"
-                },
-                "tracing": {
-                    "type": "object",
-                    "properties": {
-                        "enabled": {
-                            "type": "boolean"
-                        }
-                    }
-                },
-                "workloadNamespaceLabel": {
-                    "type": "string"
-                }
-            }
-        },
-        "grafana": {
-            "type": "object",
-            "properties": {
-                "auth": {
-                    "type": "object",
-                    "properties": {
-                        "anonymous": {
-                            "type": "object",
-                            "properties": {
-                                "enabled": {
-                                    "type": "boolean"
-                                },
-                                "role": {
-                                    "type": "null"
-                                }
-                            }
-                        }
-                    }
-                },
-                "enabled": {
-                    "type": "boolean"
-                },
-                "image": {
-                    "type": "object",
-                    "properties": {
-                        "name": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "name": {
-                    "type": "string"
-                }
-            }
-        },
-        "heartbeatSchedule": {
-            "type": "string"
+        "enableH2Upgrade": {
+            "type": "boolean"
         },
         "identity": {
             "type": "object",
@@ -329,10 +70,7 @@
                             "type": "string"
                         },
                         "crtExpiry": {
-                            "type": "null"
-                        },
-                        "crtExpiryAnnotation": {
-                            "type": "string"
+                            "type": ["string"]
                         },
                         "issuanceLifetime": {
                             "type": "string"
@@ -355,22 +93,26 @@
                 }
             }
         },
-        "kubectlImage": {
-            "type": "object",
-            "properties": {
-                "name": {
-                    "type": "string"
-                },
-                "pullPolicy": {
-                    "type": "string"
-                },
-                "registry": {
-                    "type": "string"
-                },
-                "tag": {
-                    "type": "string"
-                }
-            }
+        "identityTrustAnchorsPEM": {
+            "type": "string"
+        },
+        "identityTrustDomain": {
+            "type": "string"
+        },
+        "imagePullPolicy": {
+            "type": "string"
+        },
+        "imagePullSecrets": {
+            "type": "array"
+        },
+        "installNamespace": {
+            "type": "boolean"
+        },
+        "linkerdVersion": {
+            "type": "string"
+        },
+        "namespace": {
+            "type": "string"
         },
         "nodeSelector": {
             "type": "object",
@@ -382,6 +124,12 @@
         },
         "omitWebhookSideEffects": {
             "type": "boolean"
+        },
+        "podAnnotations": {
+            "type": "object"
+        },
+        "podLabels": {
+            "type": "object"
         },
         "profileValidator": {
             "type": "object",
@@ -397,23 +145,192 @@
                 },
                 "keyPEM": {
                     "type": "string"
+                },
+                "namespaceSelector": {
+                    "type": "object",
+                    "properties": {
+                        "matchExpressions": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "key": {
+                                        "type": "string"
+                                    },
+                                    "operator": {
+                                        "type": "string"
+                                    },
+                                    "values": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         },
-        "prometheusAlertmanagers": {
-            "type": "array"
+        "proxy": {
+            "type": "object",
+            "properties": {
+                "cores": {
+                    "type": "integer"
+                },
+                "enableExternalProfiles": {
+                    "type": "boolean"
+                },
+                "image": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "pullPolicy": {
+                            "type": "string"
+                        },
+                        "version": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "inboundConnectTimeout": {
+                    "type": "string"
+                },
+                "logFormat": {
+                    "type": "string"
+                },
+                "logLevel": {
+                    "type": "string"
+                },
+                "opaquePorts": {
+                    "type": "string"
+                },
+                "outboundConnectTimeout": {
+                    "type": "string"
+                },
+                "ports": {
+                    "type": "object",
+                    "properties": {
+                        "admin": {
+                            "type": "integer"
+                        },
+                        "control": {
+                            "type": "integer"
+                        },
+                        "inbound": {
+                            "type": "integer"
+                        },
+                        "outbound": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                "requireIdentityOnInboundPorts": {
+                    "type": "string"
+                },
+                "resources": {
+                    "type": "object",
+                    "properties": {
+                        "cpu": {
+                            "type": "object",
+                            "properties": {
+                                "limit": {
+                                    "type": "string"
+                                },
+                                "request": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "memory": {
+                            "type": "object",
+                            "properties": {
+                                "limit": {
+                                    "type": "string"
+                                },
+                                "request": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "uid": {
+                    "type": "integer"
+                },
+                "waitBeforeExitSeconds": {
+                    "type": "integer"
+                }
+            }
         },
-        "prometheusExtraArgs": {
-            "type": "object"
-        },
-        "prometheusImage": {
-            "type": "string"
-        },
-        "prometheusLogLevel": {
-            "type": "string"
-        },
-        "prometheusRuleConfigMapMounts": {
-            "type": "array"
+        "proxyInit": {
+            "type": "object",
+            "properties": {
+                "closeWaitTimeoutSecs": {
+                    "type": "integer"
+                },
+                "ignoreInboundPorts": {
+                    "type": "string"
+                },
+                "ignoreOutboundPorts": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "pullPolicy": {
+                            "type": "string"
+                        },
+                        "version": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "resources": {
+                    "type": "object",
+                    "properties": {
+                        "cpu": {
+                            "type": "object",
+                            "properties": {
+                                "limit": {
+                                    "type": "string"
+                                },
+                                "request": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "memory": {
+                            "type": "object",
+                            "properties": {
+                                "limit": {
+                                    "type": "string"
+                                },
+                                "request": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "xtMountPath": {
+                    "type": "object",
+                    "properties": {
+                        "mountPath": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
         },
         "proxyInjector": {
             "type": "object",
@@ -429,81 +346,33 @@
                 },
                 "keyPEM": {
                     "type": "string"
-                }
-            }
-        },
-        "smiMetrics": {
-            "type": "object",
-            "properties": {
-                "caBundle": {
-                    "type": "string"
                 },
-                "crtPEM": {
-                    "type": "string"
-                },
-                "enabled": {
-                    "type": "boolean"
-                },
-                "externalSecret": {
-                    "type": "boolean"
-                },
-                "image": {
-                    "type": "string"
-                },
-                "keyPEM": {
-                    "type": "string"
-                }
-            }
-        },
-        "tap": {
-            "type": "object",
-            "properties": {
-                "caBundle": {
-                    "type": "string"
-                },
-                "crtPEM": {
-                    "type": "string"
-                },
-                "externalSecret": {
-                    "type": "boolean"
-                },
-                "keyPEM": {
-                    "type": "string"
-                }
-            }
-        },
-        "tracing": {
-            "type": "object",
-            "properties": {
-                "collector": {
+                "namespaceSelector": {
                     "type": "object",
                     "properties": {
-                        "image": {
-                            "type": "string"
-                        },
-                        "name": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "enabled": {
-                    "type": "boolean"
-                },
-                "jaeger": {
-                    "type": "object",
-                    "properties": {
-                        "image": {
-                            "type": "string"
-                        },
-                        "name": {
-                            "type": "string"
+                        "matchExpressions": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "key": {
+                                        "type": "string"
+                                    },
+                                    "operator": {
+                                        "type": "string"
+                                    },
+                                    "values": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
             }
-        },
-        "webImage": {
-            "type": "string"
         },
         "webhookFailurePolicy": {
             "type": "string"

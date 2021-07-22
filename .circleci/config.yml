@@ -1,14 +1,16 @@
 version: 2.1
 orbs:
-  architect: giantswarm/architect@2.3.0
+  architect: giantswarm/architect@4.0.0
 
 workflows:
   package-and-push-chart-on-tag:
     jobs:
       - architect/push-to-app-catalog:
           name: "package and push linkerd2 chart"
-          app_catalog: "giantswarm-playground-catalog"
-          app_catalog_test: "giantswarm-playground-test-catalog"
+          context: architect
+          executor: "app-build-suite"
+          app_catalog: "giantswarm-catalog"
+          app_catalog_test: "giantswarm-test-catalog"
           chart: "linkerd2-app"
           # Trigger job on git tag.
           filters:

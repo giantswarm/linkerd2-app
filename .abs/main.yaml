@@ -1,0 +1,6 @@
+skip-steps: test_all
+chart-dir: helm/linkerd2-cni-app
+replace-chart-version-with-git: true
+replace-app-version-with-git: false
+generate-metadata: true
+catalog-base-url: https://giantswarm.github.io/giantswarm-catalog/

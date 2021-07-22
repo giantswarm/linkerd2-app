@@ -1,0 +1,3 @@
+linkerd2-app*.tgz
+linkerd2-app*.tgz-meta/
+helm/linkerd2-app/charts/
